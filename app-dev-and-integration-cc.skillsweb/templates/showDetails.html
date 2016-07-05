@@ -1,0 +1,110 @@
+ 
+
+<div id="content" >
+<div class="main-wrapper col-md-10" style="height:900px;
+">  
+ <section class="section summary-section">
+          <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
+          <div class="summary">
+              <p>{{objective.experience}} {{objective.expType}} experience as {{skillsetLabels}} ,developing application using nay combination of the following technologies: {{objective.skill}};to enjoy my work with an organisation that prides itself on using forward-thinking practices. </p>
+          </div><!--//summary-->
+      </section><!--//section-->
+
+      <section class="skills-section section">
+          <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+          <div class="skillset">  
+              
+              <div class="item" ng-repeat="skillSet in skillKeyWords track by $index">
+                  <h3 class="level-title">{{skillSet.skill}}</h3>
+                  <div class="level-bar">
+                      <div class="level-bar-inner" ng-if="skillSet.rate" data-level="{{skillSet.rate}}%" style="width: {{skillSet.rate}}%;">
+                      </div>                                      
+                  </div>
+              </div>
+          </div>  
+      </section><!--//skills-section-->
+      
+      <section class="section experiences-section">
+          <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
+          
+          <div class="item" ng-repeat="exp in experiences">
+              <div class="meta">
+                  <div class="upper-row">
+                      <h3 class="job-title">{{exp.label}}</h3>
+                      <div class="time">{{exp.startDate}} - {{exp.endDate}}</div>
+                  </div><!--//upper-row-->
+                  <div class="company">{{exp.company}}</div>
+              </div><!--//meta-->
+              <div class="details">
+                  <p>{{exp.summary}}</p>
+              </div><!--//details-->
+          </div><!--//item-->
+          
+      </section><!--//section-->
+      
+      <section class="section projects-section">
+          <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
+          <!-- <div class="intro">
+              <p>You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.</p>
+          </div> --><!--//intro-->
+          <div class="item" ng-repeat="prj in projects">
+              <span class="project-title"><a href="#hook">{{prj.name}}</a></span> - <span class="project-tagline">{{prj.description}}</span>
+              
+          </div><!--//item-->
+		  
+          
+      </section><!--//section-->
+
+</div>
+<div class="col-md-2 sidebar-wrapper"  id="yourElement" style=" height:900px;">
+
+ <div class="profile-container">
+                <img class="profile img-thumbnail" src="img/emp.jpg" alt="">
+                <h1 class="name">{{basics.name}}</h1>
+                <h3 class="tagline">{{skillsetLabels}}</h3>
+            </div><!--//profile-container-->
+            <div class="contact-container container-block">
+                <ul class="list-unstyled contact-list">
+                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: {{basics.email}}">{{basics.email}}</a></li>
+                    <li class="phone"><i class="fa fa-phone"></i><a href="tel:{{basics.phone}}">{{basics.phone}}</a></li>
+                    <li class="website"><i class="fa fa-globe"></i><a href="#" target="_blank">portfoliosite.com</a></li>
+                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="#" target="_blank">linkedin.com/in/alandoe</a></li>
+                    <li class="github"><i class="fa fa-github"></i><a href="#" target="_blank">github.com/username</a></li>
+                    <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/3rdwave_themes" target="_blank">@twittername</a></li>
+                </ul>
+            </div><!--//contact-container-->
+            <div class="education-container container-block" ng-repeat="edu in educations">
+                <h2 class="container-block-title">Education</h2>
+                <div class="item" >
+                    <h4 class="degree">{{edu.label}}</h4>
+                    <h5 class="meta">{{edu.place}}</h5>
+                    <div class="time">{{edu.startDate}} - {{edu.endDate}}</div>
+                </div><!--//item-->
+            </div><!--//education-container-->
+            
+            <div class="languages-container container-block">
+                <h2 class="container-block-title">Languages</h2>
+                <ul class="list-unstyled interests-list" ng-repeat="lang in languages track by $index">
+                    <li>{{lang}} <span class="lang-desc" ng-if="$index == '0'">(Native)</span>
+                    <span class="lang-desc" ng-if="$index > '0'">(Professional)</span></li>
+                    
+                </ul>
+            </div><!--//interests-->
+            
+            <div class="interests-container container-block">
+                <h2 class="container-block-title">Interests</h2>
+                <ul class="list-unstyled interests-list" ng-repeat="interest in interests">
+                    <li>{{interest}}</li>
+                </ul>
+            </div><!--//interests-->
+            
+
+ </div>
+</div>
+ 
+   <div style="clear:both;"> </div>
+ <div id="editor"></div>
+ <div class="col-sm-12 pull-left">
+<button class="btn btn-info " id="cmd">generate PDF</button> </div>
+  
+  

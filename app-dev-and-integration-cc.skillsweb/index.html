@@ -1,0 +1,69 @@
+<html lang='en' ng-app='resumeStack'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Resume Engine</title>
+  <script src="js/resources/angular.js"></script>
+  <script src="js/resources/angular-route.js"></script>
+  <script src="js/resources/angular-animate.min.js"></script>
+  <script src="js/resources/angular-resource.js"></script>
+  
+  <link rel="stylesheet" href="css/resume.css">
+  <link rel="stylesheet" href="css/app-theme.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href= "css/angular-chart.css" />
+  <link rel="stylesheet" href="css/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="css/keyframe-animations.css"/>
+  
+  
+
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="altiLogo" href="#" ><img class="logo" src="img/altiLogo.png" alt="Altimetrik Resume Engine"></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="dashboard" ng-click="hideSidebar=false">Dashboard</a></li>
+          <li><a href="#addProfile" id="addProfile" ng-click="hideSidebar=true">Add New Profile</a></li>
+		  <li><a href="#chart" >Chart</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid mainWrapper">
+    <div class="row">
+       <div class="col-sm-12">
+        <div ng-view></div>
+      </div>
+    </div>
+
+  </div>
+  <script src="js/modules/displayList.js"></script>
+  <script src="js/controllers/displayList.js"></script>
+  <script src="js/services/resumeServices.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="js/resources/bootstrap.min.js"></script>
+  <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>
+  <script src="js/resources/toastr.min.js"></script>
+  <script src="js/resources/jquery.validate.min.js"></script>
+  <script src="js/resources/angular.js"></script>
+  <script src="js/resources/Chart.min.js"></script>
+  <script src="js/resources/angular-chart.js"></script>
+ 
+   <script src="js/resources/angular-validate.min.js"></script>
+</body>
+</html>

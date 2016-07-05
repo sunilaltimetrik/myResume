@@ -1,0 +1,18 @@
+{
+  "name": "resumeapp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "An internal tool to handle resumes.",
+  "repository": "https://www.assembla.com/spaces/app-dev-and-integration-cc",
+  "license": "Altimetrik",
+  "devDependencies": {
+    "http-server": "^0.6.1",
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}

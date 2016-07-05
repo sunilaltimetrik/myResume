@@ -1,0 +1,64 @@
+
+<div class="container-fluid" ng-init="pageChanged(page)">
+    <div class="row">
+		<div class="col-sm-2 sidebar">
+		<div class="row">
+            <div class="bs-callout bs-callout-warning"><h4>Search Filter</h4></div>
+            <div class="col-xs-12">
+              <label>Key Words</label>
+              <input type="search" class="form-control" ng-model="filterName" placeholder="Filter Resume..." />
+            </div>
+            <div class="col-xs-12">
+			
+              <div class="form-group">
+                <label for="">Expirience</label>
+                <div class="input-group">
+                  <div class="input-group-addon">Min</div>
+                  <input type="text" class="form-control" ng-model="minExp" id="" placeholder="2">
+                  <div class="input-group-addon">Years</div>
+                </div>
+              </div>
+			  
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon">Max</div>
+                  <input type="text" class="form-control" ng-model="maxExp" id="" placeholder="8">
+                  <div class="input-group-addon">Years</div>
+                </div>
+              </div>
+			  
+            </div>
+        </div>
+		</div>
+	  <div class="col-sm-1"></div>
+      <div class="col-sm-9">
+        <h2 class="sub-header">{{title}}</h2>
+        <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th ng-repeat='header in tableHeaders'>{{header}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="resume in resumeCollection | filter : expirienceFilter(filterName, minExp, maxExp)">
+                  <td>{{resume.phone}}</td>
+                  <td><a href="#showDetails/{{resume.recId}}">{{resume.name}}</a></td>
+                  <td ng-if="resume.label">{{resume.label}}</td><td ng-if="!resume.label">--</td>
+                  <td ng-if="resume.skillsInfo">{{resume.skillsInfo}}</td><td ng-if="!resume.skillsInfo">--</td>
+                  <td ng-if="resume.experience">{{resume.experience}}</td><td ng-if="!resume.experience">--</td>
+                  <td ng-if="resume.referencesInfo">{{resume.referencesInfo}}</td><td ng-if="!resume.referencesInfo">--</td>
+                  <td>
+					<a ng-href="#editProfile/{{resume.recId}}"> <button type="button" class="btn btn-primary btn-xs" 
+                      ng-click="routeToEditTemplate(resume.recId)">Edit</button></a>
+					  
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+			<pagination  page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" class="pull-right" previous-text="&laquo;" next-text="&raquo;" ng-click="pageChanged(page)" boundary-links="false" ></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  

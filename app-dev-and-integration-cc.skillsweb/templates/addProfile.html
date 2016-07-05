@@ -1,0 +1,77 @@
+ <div class="container-fluid mainWrapper">
+    <div class="row">
+      <div class="col-sm-9 col-sm-offset-2 main">
+        <h2 class="sub-header">{{title}}</h2>
+        <form name="resumeForm" ng-submit="submitResume(resumeForm)" ng-validate="validationOptions" id="news_action">
+          <div class="basics-info" ng-repeat="(sectionKey, section) in resumeFormfields">
+
+            
+                <div class="panel-group ">
+                 <div class="panel panel-default">
+                        <div class="panel-heading" ng-click="collapsed=!collapsed">
+                            <h4 class="panel-title">
+                                <span ng-model="collapsed" >
+                                    {{section.sectionLabel}}
+                                </span>
+                            </h4>
+                        </div>
+                        <div ng-show="collapsed ">
+                            <div class="panel-body">
+                                <div class="form-group col-md-4" ng-repeat="fieldInfo in section.sectionFields track by $index" ng-hide="section.recurring" >
+                                    <label>
+                                        {{fieldInfo.label}}    
+                                    </label>
+                                    <input  type="{{fieldInfo.controlType}}"
+                                            class="form-control "
+                                            name="{{fieldInfo.name}}"
+                                            ng-model='fieldInfo.value'
+                                            placeholder="{{fieldInfo.placeholder}}"  id="{{fieldInfo.id}}" />
+										
+            
+
+                                </div>
+								<div class="form-group " ng-repeat="fieldInfo in section.sectionFields " ng-hide="!section.recurring">
+								
+								<div  class="form-group col-md-4" ng-repeat="field in fieldInfo">
+								 <label>
+                                        {{field.label}}    
+                                    </label>
+                                    <input  type="{{field.controlType}}"
+                                            class="form-control {{field.class}}"
+                                            ng-required="{{field.required}}"
+                                            name="{{field.label}}"
+                                            ng-model='field.value'
+                                            placeholder="{{field.placeholder}}" />
+											
+									
+								
+								</div><hr>
+								</div>
+								<span ng-if="section.recurring">
+									<img class="recurringButton" ng-click='addField(fieldInfo, sectionKey, $index)' src="img/addIcon.png" />
+								</span>
+								<span ng-if="section.recurring">
+									<img class="recurringButton" ng-click='removeField(fieldInfo, sectionKey, $index)' src="img/removeIcon.png" />
+								</span><hr>
+
+
+                            </div>
+							
+                        </div>
+												
+                    </div>
+                </div>
+
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div> 
+  
+  
+ <style>
+ #news_action .error {
+    color: red;
+}
+</style>
